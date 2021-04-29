@@ -61,22 +61,8 @@ static Scanner sc = new Scanner(System.in);
                    
                 case 3: //Producto de dos matrices
                 	introducirMatriz(2);
-                    filas = matrizA.length;
-                    columnas = matrizA[0].length;
-                    int filasb = matrizB.length;
-                    
-                    matrizResultado = new int[columnas][filasb];
-                    
-                	 for (int a = 0; a < filasb; a++) {
-                         for (int i = 0; i < filas; i++) {
-                             int suma = 0;
-                             for (int j = 0; j < columnas; j++) {
-                                 
-                                 suma += matrizA[i][j] * matrizB[j][a];
-                             }
-                             matrizResultado[i][a] = suma;
-                         }
-                     }
+                	
+                	multiplicaMatriz();
                 	 
                 	 System.out.println("RESULTADO:");
                      pintaMatriz(matrizResultado);
@@ -146,28 +132,16 @@ static Scanner sc = new Scanner(System.in);
                     
                 case 7: //Potencia de una matriz cuadrada
                 	introducirMatriz(4);
-                    filas = matrizA.length;
-                    columnas = matrizA[0].length;
-                   
-                    matrizResultado = new int[filas][filas];
+                    System.out.println("Introduce un exponente: ");
+                    int exp = sc.nextInt();
+                    matrizB = matrizA;
+                    for(int i=1;i<exp;i++) {
+                    	multiplicaMatriz();
+                    	matrizA = matrizResultado;
+                    }
                     
-                	 for (int a = 0; a < filas; a++) {
-                         for (int i = 0; i < filas; i++) {
-                             int suma = 0;
-                             for (int j = 0; j < columnas; j++) {
-                                 
-                                 suma += matrizA[i][j] * matrizA[j][a];
-                             }
-                             matrizResultado[i][a] = suma;
-                         }
-                     }
-                	 for (int i = 0; i != p - 1; ++i) {
-                		 matrizResultado[i][a] = 
-                		 
-                	 }
-                		 
-                	 System.out.println("RESULTADO:");
-                     pintaMatriz(matrizResultado);
+                	System.out.println("RESULTADO:");
+                    pintaMatriz(matrizResultado);
                 	System.out.println("-------------------------------------------");
                     break;
                     
@@ -267,6 +241,25 @@ static Scanner sc = new Scanner(System.in);
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void multiplicaMatriz() {
+		int filas = matrizA.length;
+        int columnas = matrizA[0].length;
+        int filasb = matrizB.length;
+        
+        matrizResultado = new int[columnas][filasb];
+        
+    	 for (int a = 0; a < filasb; a++) {
+             for (int i = 0; i < filas; i++) {
+                 int suma = 0;
+                 for (int j = 0; j < columnas; j++) {
+                     
+                     suma += matrizA[i][j] * matrizB[j][a];
+                 }
+                 matrizResultado[i][a] = suma;
+             }
+         }
 	}
 	
 	

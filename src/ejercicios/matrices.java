@@ -14,7 +14,6 @@ static Scanner sc = new Scanner(System.in);
 		 
 		 while(!salir){
 			   System.out.println("Seleccione la operación");
-			   
 	           System.out.println("1. Suma de dos matrices");
 	           System.out.println("2. Producto de un escalar por una matriz");
 	           System.out.println("3. Producto de dos matrices");
@@ -27,7 +26,6 @@ static Scanner sc = new Scanner(System.in);
 	           System.out.println("-------------------------------------------");
 	           opcion = sc.nextInt();
 	       
-	        	   
 	           switch(opcion){
                case 1: //Suma
                    introducirMatriz(1);
@@ -66,7 +64,6 @@ static Scanner sc = new Scanner(System.in);
                     filas = matrizA.length;
                     columnas = matrizA[0].length;
                     int filasb = matrizB.length;
-                    int columnasb = matrizB[0].length;
                     
                     matrizResultado = new int[columnas][filasb];
                     
@@ -151,7 +148,7 @@ static Scanner sc = new Scanner(System.in);
                 	introducirMatriz(4);
                     filas = matrizA.length;
                     columnas = matrizA[0].length;
-                    
+                   
                     matrizResultado = new int[filas][filas];
                     
                 	 for (int a = 0; a < filas; a++) {
@@ -164,17 +161,22 @@ static Scanner sc = new Scanner(System.in);
                              matrizResultado[i][a] = suma;
                          }
                      }
-                	 
+                	 for (int i = 0; i != p - 1; ++i) {
+                		 matrizResultado[i][a] = 
+                		 
+                	 }
+                		 
                 	 System.out.println("RESULTADO:");
                      pintaMatriz(matrizResultado);
                 	System.out.println("-------------------------------------------");
                     break;
+                    
                 case 8: //Resta de dos matrices
                 	 introducirMatriz(1);
                      matrizResultado = matrizA;
                       for (int i = 0; i < matrizA.length; i++) {
                       	for (int j = 0; j < matrizA[i].length; j++) {
-                      		matrizResultado[i][j] = matrizA[i][j] - matrizB[i][j];
+                      		matrizResultado[i][j] = matrizA[i][j] + (-(matrizB[i][j]));
                       	}
              		  }
                       
